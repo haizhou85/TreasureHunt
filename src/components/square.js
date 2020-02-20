@@ -19,10 +19,9 @@ click = () => {
     }
 }
 
-
   render(){
     return(
-      <div id = "square" onClick = { this.click }>
+      <div id = "square" onClick = { this.click } style={{height: this.props.length},{width:this.props.length}}>
       {this.props.index}, {this.state.icon}
       </div>
     )

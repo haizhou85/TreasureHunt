@@ -5,7 +5,7 @@ class Board extends Component{
   constructor(props){
     super(props)
     this.state = {
-      size: 4,
+      size: 7,
       gameBoard : [],
       treasure: [3,8],
       bomb: [4]
@@ -13,12 +13,11 @@ class Board extends Component{
   this.state.gameBoard = this.buildBoard(this.state.size)
   }
   buildBoard = (num) => {
-    let n = num**2
-    let board = []
-    for (let i = 0; i < n; i++){
-      board = board.concat(0)
+    let newRow = []
+    for (let i = 0; i < num**2; i++){
+      newRow = newRow.concat(0)
     }
-    return board
+    return newRow
   }
 
   handleClick = (index) => {
@@ -30,17 +29,22 @@ class Board extends Component{
     }
 
   }
+  squareLength = (num) => {
+    return 800/num - 2
+  }
   render(){
   let { gameBoard, size } = this.state
+
   for (let i = 0; i < gameBoard.length; i++){
       gameBoard[i] = <Square
       index = {i}
       treasure = { this.state.treasure }
       bomb = { this.state.bomb }
       handleClick = { this.handleClick }
+      length = { this.squareLength(size) }
       />
     }
-    
+
     return(
       <div id="board">
       { gameBoard }
