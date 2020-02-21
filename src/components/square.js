@@ -4,9 +4,11 @@ class Square extends Component{
   constructor(props){
     super(props)
     this.state={
-      icon : "?"
+      icon : props.icon
     }
   }
+
+
 click = () => {
   let n = this.props.index
   this.props.handleClick(n)
@@ -22,7 +24,7 @@ click = () => {
   render(){
     return(
       <div id = "square" onClick = { this.click } style={{height: this.props.length},{width:this.props.length}}>
-      {this.props.index}, {this.state.icon}
+      {this.props.index}, {this.props.icon}
       </div>
     )
   }

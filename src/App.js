@@ -3,9 +3,13 @@ import Board from './components/board.js';
 import './App.css';
 const App = (props) => {
     return(
-      <div>
-        <Board />
-      </div>
+      <>
+        <div>Hello</div>
+        <div className="GamePlay">
+            <Board />
+            <div>GFDSDGSDFSDF</div>
+        </div>
+      </>
     )
   }
 
